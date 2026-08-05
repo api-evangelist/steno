@@ -1,0 +1,77 @@
+generated: '2026-08-05'
+method: probed
+source: live GET of the RFC 8615 well-known surface on every Steno host in apis.yml
+note: 'No well-known document was found on any Steno host. This file is recorded probe
+  evidence, not a discovery surface — there is deliberately no `type: WellKnown` or
+  `type: SecurityTxt` pointer in apis.yml, because none of these documents exists.'
+hosts:
+- host: https://steno.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://api.steno.com
+  server: AWS API Gateway
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    body: '{"message":"Forbidden"}'
+  - path: /.well-known/openid-configuration
+    status: 403
+    body: '{"message":"Forbidden"}'
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+    body: '{"message":"Forbidden"}'
+  - path: /.well-known/api-catalog
+    status: 403
+    body: '{"message":"Forbidden"}'
+  - path: /.well-known/agent-card.json
+    status: 403
+    body: '{"message":"Forbidden"}'
+  - path: /.well-known/agent.json
+    status: 403
+    body: '{"message":"Forbidden"}'
+contract_discovery:
+  note: STEP 0b contract discovery — every candidate location for a machine-readable
+    contract, probed against the API host root and the site host. All missed.
+  probes:
+  - url: https://api.steno.com/openapi.json
+    status: 403
+    body: '{"message":"Forbidden"}'
+  - url: https://api.steno.com/openapi.yaml
+    status: 403
+  - url: https://api.steno.com/swagger.json
+    status: 403
+  - url: https://api.steno.com/v1/openapi.json
+    status: 403
+    body: '{"message":"Missing Authentication Token"}'
+  - url: https://api.steno.com/api-docs
+    status: 403
+  - url: https://api.steno.com/docs
+    status: 403
+  - url: https://api.steno.com/redoc
+    status: 403
+  - url: https://api.steno.com/graphql
+    status: 403
+  - url: https://developer.steno.com/
+    status: 0
+    note: NXDOMAIN — no developer host exists
+  - url: https://docs.steno.com/
+    status: 0
+    note: NXDOMAIN — no docs host exists
+  - url: https://app.steno.com/
+    status: 404
+  conclusion: Steno's API host is a live AWS API Gateway that rejects every anonymous
+    request. No OpenAPI, Swagger, GraphQL SDL, AsyncAPI, MCP manifest, or A2A agent
+    card is published at any reachable location.

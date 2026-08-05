@@ -1,0 +1,78 @@
+generated: '2026-08-05'
+method: searched
+source: https://brief.steno.com/soc2-hipaa-compliance
+note: 'API-standard conformance cannot be derived — Steno publishes no OpenAPI, AsyncAPI,
+  GraphQL SDL, or JSON Schema. Every API-standard row below is therefore recorded as
+  `unknown`, not `false`: the contract is unreadable, so no claim either way is supportable.
+  The organizational compliance rows ARE supportable and are evidenced.'
+standards:
+- id: soc2-type-ii
+  conforms: true
+  evidence: 'Steno Connect, Firm Dashboard, and Ops audited SOC 2 Type II against the
+    Security, Availability, and Confidentiality trust service criteria by Linford &
+    Company LLP; posture published at https://trust.steno.com/'
+  source: https://brief.steno.com/soc2-hipaa-compliance
+- id: hipaa
+  conforms: true
+  evidence: audited for HIPAA compliance by Linford & Company LLP as a business associate
+    handling protected health information appearing in transcripts and proceedings
+  source: https://brief.steno.com/soc2-hipaa-compliance
+- id: gdpr-dpa
+  conforms: true
+  evidence: Data Processing Addendum published at https://steno.com/dpa
+  source: https://steno.com/dpa
+- id: ccpa-cpra
+  conforms: true
+  evidence: California Privacy notice and a "Your Privacy Choices" control are linked
+    from every page footer
+  source: https://steno.com/privacy
+- id: saml-2.0
+  conforms: true
+  evidence: SAML single sign-on documented for Steno accounts
+  source: https://help.steno.com/setting-up-saml-single-sign-on-sso
+- id: openapi
+  conforms: false
+  evidence: no OpenAPI or Swagger document is served at any probed location on steno.com
+    or api.steno.com
+- id: oauth2
+  conforms: unknown
+  evidence: no OAuth 2.0 authorization server metadata is served; /.well-known/oauth-authorization-server
+    is 403 on api.steno.com and 404 on steno.com. The one documented API credential
+    is a static organization API key.
+- id: oidc
+  conforms: unknown
+  evidence: /.well-known/openid-configuration returns 404 on steno.com and 403 on api.steno.com
+- id: rfc9457-problem-details
+  conforms: unknown
+  evidence: 'error bodies observed anonymously are AWS API Gateway defaults ({"message":"Forbidden"},
+    {"message":"Missing Authentication Token"}) with content-type application/json,
+    not application/problem+json — but these are gateway errors, not application errors,
+    so they say nothing about the API''s own error contract'
+- id: asyncapi
+  conforms: false
+  evidence: no AsyncAPI document and no documented webhook surface
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on steno.com and 403 on api.steno.com
+- id: rfc8594-sunset-header
+  conforms: unknown
+  evidence: no deprecation or sunset policy is published; header behaviour is not observable
+    anonymously
+- id: a2a
+  conforms: false
+  evidence: /.well-known/agent-card.json and /.well-known/agent.json both miss on every
+    Steno host
+- id: mcp
+  conforms: false
+  evidence: no hosted MCP server found on any Steno host or in any public MCP registry
+x-evidence:
+- url: https://brief.steno.com/soc2-hipaa-compliance
+  http_status: 200
+- url: https://trust.steno.com/
+  http_status: 200
+- url: https://steno.com/dpa
+  http_status: 200
+- url: https://help.steno.com/setting-up-saml-single-sign-on-sso
+  http_status: 200
+- url: https://steno.com/.well-known/security.txt
+  http_status: 404

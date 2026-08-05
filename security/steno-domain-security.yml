@@ -1,0 +1,51 @@
+generated: '2026-08-05'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: steno.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 24 10:33:43 2026 GMT
+  hsts: true
+  hsts_max_age: 31557600
+- host: help.steno.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 15 11:18:08 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: api.steno.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 24 10:33:43 2026 GMT
+  hsts: true
+  hsts_max_age: 31557600
+  note: 'automated probe first recorded hsts null; re-probed by hand three times (curl
+    -I and curl -X HEAD) and the header is present on the 403 response as strict-transport-security:
+    max-age=31557600'
+- host: brief.steno.com
+  https: true
+  hsts: true
+  hsts_max_age: 31536000
+- host: status.steno.com
+  https: true
+  hsts: true
+  hsts_max_age: 31536000
+  hsts_include_subdomains: true
+  hsts_preload: true
+- host: trust.steno.com
+  https: true
+  hsts: true
+  hsts_max_age: 31536000
+  hsts_include_subdomains: true
+domains:
+- domain: steno.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+x-evidence:
+  fetched: '2026-08-05'
+  tool: 0-working/probe-domain-security.py, plus a manual curl re-probe of api.steno.com
+    and the three subdomains the script did not carry

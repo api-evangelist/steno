@@ -1,0 +1,62 @@
+generated: '2026-08-05'
+method: searched
+source: https://help.steno.com/
+note: Steno ships no JavaScript element library or web-component SDK. What it does
+  ship are host-platform embedded surfaces — a Lightning Web Component installed into
+  Salesforce/Litify, a Zoom App panel, and a Clio Manage in-app booking surface. Those
+  are the real embeddable components and they are recorded here. None is loadable from
+  a public CDN; each is installed through its host platform's marketplace.
+families:
+- name: Salesforce / Litify
+  kind: lightning-web-component
+  components:
+  - name: steno_stenoContainer
+    surface: Litify Matter Record Page
+    description: Lightning Web Component added to the Matter record page layout so
+      attorneys can book Steno court reporting and open transcripts, exhibits, and
+      video without leaving Litify.
+    install: Salesforce managed package (AppExchange), then App Builder > Matter Record
+      Page > drag steno_stenoContainer onto the layout
+    permission_set: Steno Booking Tool
+    apex_class: StenoAuthenticationController
+    configuration: Custom Metadata Type "Steno Configuration" holds the Steno API URL
+      and the organization API Key, with separate Staging and Production records
+    docs: https://help.steno.com/steno-litify-integration
+- name: Clio Manage
+  kind: host-platform-app
+  components:
+  - name: Steno for Clio Manage
+    surface: Clio Manage matter workspace
+    description: In-app surface for booking Steno court reporting jobs and managing
+      deposition files from inside a Clio Manage account.
+    docs: https://help.steno.com/how-do-i-book-jobs-with-steno-on-clio-manage
+    troubleshooting: https://help.steno.com/having-trouble-logging-into-steno-clio-integration
+    marketing: https://steno.com/clio-integration
+- name: Zoom
+  kind: zoom-app
+  components:
+  - name: Steno Connect for Zoom
+    surface: Zoom meeting side panel
+    description: Zoom App for remote depositions, hearings, and bench trials, combining
+      videoconferencing with exhibit upload, sharing, and annotation.
+    docs: https://help.steno.com/how-to-set-up-the-steno-zoom-app
+    setup: https://help.steno.com/getting-started-with-steno-connect-for-zoom
+    enable_apps: https://help.steno.com/how-to-enable-zoom-apps
+    marketing: https://steno.com/technology/steno-connect
+not_found:
+  zoom_marketplace_listing: 'A Zoom App Marketplace listing was NOT confirmed. marketplace.zoom.us
+    returns HTTP 200 for a deliberately invalid app slug as well as for /apps/steno,
+    so the 200 is a single-page-app catch-all and is not evidence of a listing. No
+    listing URL is recorded.'
+x-evidence:
+- url: https://help.steno.com/steno-litify-integration
+  http_status: 200
+  observed: steno_stenoContainer LWC, StenoAuthenticationController Apex class, Steno
+    Booking Tool permission set, Steno Configuration Custom Metadata Type
+- url: https://help.steno.com/how-to-set-up-the-steno-zoom-app
+  http_status: 200
+- url: https://marketplace.zoom.us/apps/steno
+  http_status: 200
+  rejected: true
+  control: https://marketplace.zoom.us/apps/zzzz-does-not-exist-9999 also returns 200
+    — soft-404

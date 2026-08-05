@@ -1,0 +1,78 @@
+generated: '2026-08-05'
+method: searched
+source: https://status.steno.com/
+status_page: https://status.steno.com/
+status_page_detail:
+  provider: StatusHQ
+  headline_at_probe: All systems operational
+  history_window: 90 days of per-component uptime
+  subscribe: email subscription offered on the page
+  components:
+  - name: API
+    description: Core API services for Steno platform
+    sub_metrics:
+    - Performance
+    - Availability
+  - name: Web Application
+    description: Firm and Provider dashboards
+    sub_metrics:
+    - Performance
+    - Availability
+  - name: Database
+    description: Database infrastructure
+    sub_metrics:
+    - Performance
+    - Availability
+  - name: Document Editor
+    description: PDF rendering and document viewing
+    sub_metrics:
+    - Performance
+    - Availability
+  - name: Transcript Services
+    description: Transcript search and processing
+    sub_metrics:
+    - Performance
+    - Availability
+  - name: File Management
+    sub_metrics:
+    - Performance
+    - Availability
+  - name: Integrations
+    sub_metrics:
+    - Performance
+    - Availability
+versioning: null
+versioning_note: No versioning policy or version scheme is published. The Litify managed
+  package is versioned by Salesforce package ID, not by an API version.
+deprecation: null
+deprecation_note: No deprecation policy, sunset policy, or RFC 8594 Sunset/Deprecation
+  header support is published anywhere on steno.com, help.steno.com, or brief.steno.com.
+sla: null
+sla_note: No uptime SLA or service-level commitment is published. The status page shows
+  90-day uptime history but states no target.
+changelog: null
+changelog_note: 'https://steno.com/product-updates returns 200 but the HubSpot blog
+  listing behind it is empty — it renders only nav, a topic filter, and placeholder
+  menu items, with zero dated entries. There is no changelog to capture.'
+deprecated_operations: []
+deprecated_operations_note: Not derivable — Steno publishes no OpenAPI.
+terms:
+- name: Terms of Use
+  url: https://steno.com/terms
+- name: Beta Terms of Use
+  url: https://steno.com/terms-beta
+- name: Data Processing Addendum
+  url: https://steno.com/dpa
+- name: Court Reporter Agreement
+  url: https://steno.com/court-reporter-agreement
+x-evidence:
+- url: https://status.steno.com/
+  http_status: 200
+  observed: '"All systems operational"; a component named "API" described as "Core
+    API services for Steno platform" — the only first-party public confirmation Steno
+    runs an API'
+- url: https://steno.com/product-updates
+  http_status: 200
+  observed: empty blog listing, no dated entries
+- url: https://steno.com/pricing
+  http_status: 404

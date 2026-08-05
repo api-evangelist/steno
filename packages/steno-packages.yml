@@ -1,0 +1,60 @@
+generated: '2026-08-05'
+method: searched
+source: https://help.steno.com/steno-litify-integration
+note: 'Steno publishes NO client SDK in any public package registry. npm, PyPI, Maven
+  Central, NuGet, pkg.go.dev, RubyGems, Packagist, and crates.io were checked and the
+  only same-named artifacts are unrelated third-party projects. The one genuinely first-party
+  installable package Steno distributes is a Salesforce managed package, listed below.
+  It is a host-platform application package, not a client library, so no `type: SDKs`
+  pointer is emitted for it.'
+packages:
+- language: apex
+  registry: salesforce-appexchange
+  name: Steno for Litify
+  kind: salesforce-managed-package
+  official: true
+  install_production: https://login.salesforce.com/packaging/installPackage.apexp?p0=04tao000000ypR3
+  install_sandbox: https://test.salesforce.com/packaging/installPackage.apexp?p0=04tWK0000006Q7t
+  contents:
+  - steno_stenoContainer (Lightning Web Component)
+  - StenoAuthenticationController (Apex class)
+  - Steno Booking Tool (permission set)
+  - Steno Configuration (Custom Metadata Type)
+  docs: https://help.steno.com/steno-litify-integration
+  source: https://help.steno.com/steno-litify-integration
+registries_checked:
+- registry: npm
+  query: steno
+  status: 200
+  official: false
+  note: '`steno` on npm is "Specialized fast async file writer" by typicode (github.com/typicode/steno)
+    — unrelated. `@steno/sdk`, `steno-api`, and `steno-connect` all return 404.'
+- registry: pypi
+  query: steno
+  status: 200
+  official: false
+  note: unrelated third-party project; `steno-api` returns 404
+- registry: maven-central
+  official: false
+  note: no first-party Steno artifact found
+- registry: nuget
+  official: false
+  note: no first-party Steno artifact found
+- registry: pkg.go.dev
+  official: false
+  note: no first-party Steno module found
+- registry: rubygems
+  official: false
+  note: no first-party Steno gem found
+- registry: packagist
+  official: false
+  note: no first-party Steno package found
+- registry: crates.io
+  official: false
+  note: no first-party Steno crate found
+github:
+  org: null
+  note: 'https://api.github.com/orgs/steno returns 404 (Not Found) — Steno operates
+    no public GitHub organization under that name, and a GitHub user search for "steno
+    court reporting" returns zero results.'
+sdk_count: 0
