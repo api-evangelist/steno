@@ -14,6 +14,17 @@ description: 'Steno is a Los Angeles-based legal technology and litigation servi
   with an organization-scoped API key that Steno issues on request. Steno Connect,
   Firm Dashboard, and Ops are audited SOC 2 Type II and HIPAA by Linford & Company
   LLP, with posture published at a Vanta-hosted trust center.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://5816813.fs1.hubspotusercontent-na1.net/hubfs/5816813/Steno_Logo_Square_600x600.png
 url: https://raw.githubusercontent.com/api-evangelist/steno/refs/heads/main/apis.yml
 x-type: company
