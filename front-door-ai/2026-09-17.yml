@@ -1,0 +1,26 @@
+# Front Door AI Index — steno — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: steno
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: steno.com
+  final_host: steno.com
+  ownership: own
+  owner: steno
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 9
+  host_score: 9
+  density: 5.14
+  words: 1750
+  tiers:
+    agentic: 1
+    core: 8
+    model: 0
+  ambiguous: 0
+  top_terms:
+    AI: 8
+    prompts: 1
