@@ -2,6 +2,13 @@
   "repo": "steno",
   "feeds": [
     {
+      "source": "https://brief.steno.com/",
+      "feed_url": "https://brief.steno.com/rss.xml",
+      "title": "",
+      "saved": 2,
+      "method": "discovered"
+    },
+    {
       "source": "https://help.steno.com/",
       "feed_url": "https://help.steno.com/",
       "title": "",
@@ -9,6 +16,6 @@
       "method": "none"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-10-03T12:30:02Z"
+  "post_count": 2,
+  "fetched": "2026-10-10T13:15:00Z"
 }
